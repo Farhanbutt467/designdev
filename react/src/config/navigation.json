@@ -1,0 +1,341 @@
+{
+  "header": [
+    {
+      "id": 1,
+      "name": "Home",
+      "path": "/"
+    },
+    {
+      "id": 2,
+      "name": "Company",
+      "path": "#",
+      "hasChildren": true,
+      "children": [
+        {
+          "id": 1,
+          "name": "About Us",
+          "path": "/about"
+        },
+        {
+          "id": 3,
+          "name": "Team",
+          "path": "/team"
+        },
+        {
+          "id": 4,
+          "name": "Career",
+          "path": "/career"
+        },
+        {
+          "id": 5,
+          "name": "Faq",
+          "path": "/faq"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Services",
+      "path": "/service",
+      "hasChildren": true,
+      "children": [
+        {
+          "id": 1,
+          "name": "Web Development",
+          "path": "/service/web-development"
+        },
+        {
+          "id": 2,
+          "name": "App Development",
+          "path": "/service/app-development"
+        },
+        {
+          "id": 3,
+          "name": "UI/UX Design",
+          "path": "/service/ui-ux-design"
+        },
+        {
+          "id": 4,
+          "name": "SEO Optimization",
+          "path": "/service/seo-optimization"
+        },
+        {
+          "id": 5,
+          "name": "Digital Marketing",
+          "path": "/service/digital-marketing"
+        },
+        {
+          "id": 6,
+          "name": "Content Creation",
+          "path": "/service/content-creation"
+        },
+        {
+          "id": 7,
+          "name": "Video Editing",
+          "path": "/service/video-editing"
+        },
+        {
+          "id": 8,
+          "name": "Branding Strategy",
+          "path": "/service/branding"
+        },
+        {
+          "id": 9,
+          "name": "E-commerce Solutions",
+          "path": "/service/ecommerce-solutions"
+        },
+        {
+          "id": 10,
+          "name": "Social Media Management",
+          "path": "/service/social-media"
+        },
+        {
+          "id": 11,
+          "name": "Cloud Hosting",
+          "path": "/service/cloud-hosting"
+        },
+        {
+          "id": 12,
+          "name": "Data Analytics",
+          "path": "/service/data-analytics"
+        },
+        {
+          "id": 13,
+          "name": "IT Consulting",
+          "path": "/service/it-consulting"
+        },
+        {
+          "id": 14,
+          "name": "Quality Assurance",
+          "path": "/service/qa-testing"
+        },
+        {
+          "id": 15,
+          "name": "Cybersecurity",
+          "path": "/service/cybersecurity"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Projects",
+      "path": "/work"
+    },
+    {
+      "id": 5,
+      "name": "Blog",
+      "path": "/blog"
+    },
+    {
+      "id": 6,
+      "name": "Contact",
+      "path": "/contact"
+    }
+  ],
+  "footer1": [
+    {
+      "id": 1,
+      "title": "Service",
+      "children": [
+        {
+          "name": "UI/UX Design",
+          "path": "/"
+        },
+        {
+          "name": "Web Design",
+          "path": "/"
+        },
+        {
+          "name": "Branding",
+          "path": "/"
+        },
+        {
+          "name": "Webflow",
+          "path": "/"
+        },
+        {
+          "name": "Development",
+          "path": "/"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Company",
+      "children": [
+        {
+          "name": "Home",
+          "path": "/"
+        },
+        {
+          "name": "Agency",
+          "path": "/"
+        },
+        {
+          "name": "Achievement",
+          "path": "/"
+        },
+        {
+          "name": "Career",
+          "path": "/career"
+        },
+        {
+          "name": "Contact Us",
+          "path": "/contact"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "New York",
+      "children": [
+        {
+          "isLocation": true,
+          "name": "1772 Street Charleston, New York",
+          "path": "https://maps.app.goo.gl/ebuSmBmMBFCDUSjE7"
+        },
+        {
+          "name": "+1287-360-633",
+          "path": "tel:+1287-360-633"
+        },
+        {
+          "name": "info@yourwebsite.com",
+          "path": "mailto:info@yourwebsite.com"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "London",
+      "children": [
+        {
+          "isLocation": true,
+          "name": "96 Park Hall, West Dulwich",
+          "path": "https://maps.app.goo.gl/ebuSmBmMBFCDUSjE7"
+        },
+        {
+          "name": "+1287-360-633",
+          "path": "tel:+1287-360-633"
+        },
+        {
+          "name": "info@yourwebsite.com",
+          "path": "mailto:info@yourwebsite.com"
+        }
+      ]
+    }
+  ],
+  "footer2": {
+    "title": "{Get started} <br> now",
+    "subtitle": "If you would like to work with us or just want to get in touch, we’d love to hear from you!",
+    "locationData": [
+      {
+        "id": 1,
+        "city": "London",
+        "address": "Baltia Squar, Mark Street,London"
+      },
+      {
+        "id": 2,
+        "city": "New York",
+        "address": "Nenuya Centre, Elia Street New York, USA"
+      }
+    ],
+    "navData": [
+      {
+        "id": 1,
+        "name": "About Us",
+        "path": "/about"
+      },
+      {
+        "id": 2,
+        "name": "Privacy Policy",
+        "path": "/"
+      },
+      {
+        "id": 3,
+        "name": "Career",
+        "path": "/career"
+      },
+      {
+        "id": 4,
+        "name": "Sitemap",
+        "path": "/"
+      }
+    ]
+  },
+  "footer3": [
+    {
+      "id": 1,
+      "title": "Service",
+      "children": [
+        {
+          "name": "UI/UX Design",
+          "path": "/"
+        },
+        {
+          "name": "Web Design",
+          "path": "/"
+        },
+        {
+          "name": "Branding",
+          "path": "/"
+        },
+        {
+          "name": "Webflow",
+          "path": "/"
+        },
+        {
+          "name": "Development",
+          "path": "/"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Company",
+      "children": [
+        {
+          "name": "Home",
+          "path": "/"
+        },
+        {
+          "name": "Agency",
+          "path": "/"
+        },
+        {
+          "name": "Achievement",
+          "path": "/"
+        },
+        {
+          "name": "Career",
+          "path": "/career"
+        },
+        {
+          "name": "Contact Us",
+          "path": "/contact"
+        }
+      ]
+    }
+  ],
+  "footer4": [
+    {
+      "id": 1,
+      "name": "Agency",
+      "path": "/"
+    },
+    {
+      "id": 2,
+      "name": "Career",
+      "path": "/career"
+    },
+    {
+      "id": 3,
+      "name": "Privacy",
+      "path": "/"
+    },
+    {
+      "id": 4,
+      "name": "Terms & condition",
+      "path": "/"
+    }
+  ]
+}

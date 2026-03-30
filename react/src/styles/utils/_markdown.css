@@ -1,0 +1,9 @@
+.result-area {
+  h3 {
+    @apply mt-[61px] text-[36px] leading-[1];
+  }
+
+  p {
+    @apply mt-[33px] text-text-3 leading-[1.41] font-normal font-primary text-[18px];
+  }
+}

@@ -1,0 +1,245 @@
+.btn-text-flip {
+  perspective: 1000px;
+}
+
+.btn-text-flip span {
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  transition: transform 0.5s;
+  transform-origin: 50% 0;
+  transform-style: preserve-3d;
+}
+
+.btn-text-flip span::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: color 0.5s;
+  transform: rotateX(-90deg);
+  transform-origin: 50% 0;
+}
+
+.btn-text-flip:hover span {
+  transform: rotateX(90deg) translateY(-12px);
+}
+
+.wc-btn-underline {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.wc-btn-underline::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.3s;
+}
+
+.wc-btn-underline:hover::before {
+  width: 0;
+}
+
+.wc-btn-underline.line-top::before {
+  top: 0;
+  height: 1px;
+  bottom: auto;
+}
+
+/* Group Button Hover Effect */
+.wc-btn-group {
+  display: flex;
+  width: fit-content;
+}
+
+.wc-btn-group>*:nth-child(3) {
+  transform: scale3d(0.5, 0.5, 1);
+  margin-inline-start: -30px;
+}
+
+.wc-btn-group>*:nth-child(2),
+.wc-btn-group>*:nth-child(1) {
+  transform: scale3d(1, 1, 1);
+}
+
+.wc-btn-group>*:nth-child(1) {
+  margin-inline-end: 0;
+}
+
+.wc-btn-group:hover>*:nth-child(3) {
+  transform: scale3d(1, 1, 1);
+  margin-inline-start: 0;
+}
+
+.wc-btn-group:hover>*:nth-child(2) {
+  transform: scale3d(1, 1, 1);
+}
+
+.wc-btn-group:hover>*:nth-child(1) {
+  transform: scale3d(0.5, 0.5, 1);
+  margin-inline-end: -30px;
+}
+
+/* Swap Button */
+.wc-swap-btn {
+  display: flex;
+  width: fit-content;
+}
+
+.wc-swap-btn>*:nth-child(1) {
+  margin-inline-end: -55px;
+  transform: scale3d(0.5, 0.5, 1);
+}
+
+@media (min-width: 1280px) {
+  .wc-swap-btn>*:nth-child(1) {
+    margin-inline-end: -70px;
+  }
+}
+
+.wc-swap-btn>*:nth-child(2),
+.wc-swap-btn>*:nth-child(3) {
+  transform: scale3d(1, 1, 1);
+  margin-inline-start: 0;
+}
+
+.wc-swap-btn:hover>*:nth-child(1) {
+  transform: scale3d(1, 1, 1);
+  margin-inline-end: 0;
+}
+
+.wc-swap-btn:hover>*:nth-child(3) {
+  transform: scale3d(0.5, 0.5, 1);
+  margin-inline-start: -55px;
+}
+
+@media (min-width: 1280px) {
+  .wc-swap-btn:hover>*:nth-child(3) {
+    margin-inline-start: -70px;
+  }
+}
+
+/* Swap Button Small */
+.wc-swap-btn-sm {
+  display: flex;
+  width: fit-content;
+}
+
+.wc-swap-btn-sm>*:nth-child(1) {
+  transform: scale3d(0.5, 0.5, 1);
+  margin-inline-end: -40px;
+}
+
+.wc-swap-btn-sm>*:nth-child(2),
+.wc-swap-btn-sm>*:nth-child(3) {
+  transform: scale3d(1, 1, 1);
+  margin-inline-start: 0;
+}
+
+.wc-swap-btn-sm:hover>*:nth-child(1) {
+  transform: scale3d(1, 1, 1);
+  margin-inline-end: 0;
+}
+
+.wc-swap-btn-sm:hover>*:nth-child(3) {
+  transform: scale3d(0.5, 0.5, 1);
+  margin-inline-start: -40px;
+}
+
+/* Button Group XS */
+.wc-btn-group-xs {
+  display: flex;
+  width: fit-content;
+}
+
+.wc-btn-group-xs>*:nth-child(3) {
+  transform: scale3d(0.5, 0.5, 1);
+  margin-inline-start: -30px;
+}
+
+.wc-btn-group-xs>*:nth-child(2),
+.wc-btn-group-xs>*:nth-child(1) {
+  transform: scale3d(1, 1, 1);
+}
+
+.wc-btn-group-xs>*:nth-child(1) {
+  margin-inline-end: 0;
+}
+
+.wc-btn-group-xs:hover>*:nth-child(3) {
+  transform: scale3d(1, 1, 1);
+  margin-inline-start: 0;
+}
+
+.wc-btn-group-xs:hover>*:nth-child(2) {
+  transform: scale3d(1, 1, 1);
+}
+
+.wc-btn-group-xs:hover>*:nth-child(1) {
+  transform: scale3d(0.5, 0.5, 1);
+  margin-inline-end: -30px;
+}
+
+/* Circle Button */
+.wc-btn-circle {
+  width: 170px;
+  height: 170px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  color: var(--text-3);
+  font-size: 1.125rem;
+  /* text-lg */
+  font-weight: 400;
+  line-height: 1.05;
+  transition: all 0.3s ease;
+}
+
+.wc-btn-circle:hover {
+  background-color: transparent;
+  color: var(--text-2);
+}
+
+/* Hover BG Fill Animation */
+.btn-hover-bgchange {
+  overflow: hidden;
+  position: relative;
+  z-index: 5;
+}
+
+.btn-hover-bgchange span {
+  position: absolute;
+  height: 0;
+  width: 0;
+  left: 50%;
+  top: 50%;
+  z-index: -1;
+  border-radius: 9999px;
+  background-color: var(--theme);
+  transition: all 1s ease;
+  transform: translate(-50%, -50%);
+}
+
+.btn-hover-bgchange:hover span {
+  width: 400px;
+  height: 400px;
+}
+
+/* Design Hover (Background Change) */
+.design-btn-hover span {
+  background-color: var(--background-2) !important;
+}

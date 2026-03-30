@@ -1,0 +1,22 @@
+.work-card-style {
+  &::before {
+    content: url("/assets/imgs/shape/img-s-95.png") !important;
+  }
+
+  &::after {
+    content: url("/assets/imgs/shape/img-s-94.png") !important;
+  }
+
+}
+
+.dark {
+  .work-card-style {
+    &::before {
+      content: url("/assets/imgs/shape/img-s-95-dark.png") !important;
+    }
+
+    &::after {
+      content: url("/assets/imgs/shape/img-s-94-dark.png") !important;
+    }
+  }
+}

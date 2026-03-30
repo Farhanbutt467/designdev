@@ -1,0 +1,379 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+    --theme: #121212;
+
+    --primary: #121212;
+    --background-fixed: #121212;
+    --background-fixed2: #FFF;
+
+    --background: #FFF;
+    --background2: #121212;
+    --background3: #121212;
+    --background4: #FFF;
+    --background5: #F0F2F4;
+
+
+    --text-fixed: #121212;
+    --text-fixed2: #FFF;
+    --text-fixed3: #999;
+    --text-fixed4: #555;
+
+    --text: #121212;
+    --text2: #FFF;
+    --text3: #555;
+    --text4: #999;
+    --text5: #7D8683;
+
+    --border: #1212122B;
+    --border2: #12121214;
+    --border3: #f9f9f9;
+
+    .root-layout[theme-setting="style-2"] {
+      --primary: #d8544d;
+      --border: #EFEFEF;
+      --theme: #d8544d;
+    }
+
+    .root-layout[theme-setting="style-3"] {
+      --theme: #d8544d;
+      --border: #ECECEC;
+    }
+
+    .root-layout[theme-setting="style-4"] {
+      --theme: #E85C30;
+    }
+
+    .root-layout[theme-setting="style-5"] {
+      --theme: #d8544d;
+    }
+
+    /* Global Contrast Fix for Red Theme Elements */
+    .bg-theme, 
+    .bg-primary, 
+    .bg-\[\#d8544d\], 
+    .hover\:bg-theme:hover, 
+    .hover\:bg-primary:hover,
+    .group:hover .group-hover\:bg-theme,
+    .group:hover .group-hover\:bg-primary {
+      color: #FFFFFF !important;
+    }
+
+    /* Force all text variants to be white inside red backgrounds */
+    .bg-theme .text-text-fixed,
+    .bg-theme .text-text-3,
+    .bg-theme p,
+    .bg-theme h1,
+    .bg-theme h2,
+    .bg-theme h3,
+    .bg-theme h4,
+    .bg-theme span {
+      color: #FFFFFF !important;
+    }
+
+    /* Ensure icons/text inside these elements also become white */
+    .bg-theme svg, 
+    .bg-primary svg, 
+    .bg-theme img,
+    .hover\:bg-theme:hover svg, 
+    .hover\:bg-theme:hover img,
+    .hover\:bg-primary:hover svg, 
+    .group:hover .group-hover\:bg-theme svg,
+    .group:hover .group-hover\:bg-primary svg {
+      color: #FFFFFF !important;
+      stroke: #FFFFFF !important;
+      filter: brightness(0) invert(1) !important; /* Converts black icons to white */
+    }
+
+  }
+
+  .dark {
+    --background: #121212;
+    --background2: #FFF;
+    --background3: #171717;
+    --background4: #202020;
+    --background5: #252525;
+
+    --text: #FFF;
+    --text2: #121212;
+    --text3: #999;
+    --text4: #949494;
+    --text5: #999;
+
+    --border: #FFFFFF2B;
+    --border2: #FFFFFF14;
+    --border3: #121212;
+
+    .root-layout[theme-setting="style-2"] {
+      --background3: #1C1C1C;
+      --border: #252525;
+    }
+
+    .root-layout[theme-setting="style-3"] {
+      --background3: #1B1B1B;
+      --border: #252525;
+    }
+  }
+
+
+
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background font-primary leading-none;
+  }
+
+  a {
+    @apply cursor-pointer
+  }
+
+  p {
+    @apply leading-[1.41] text-[18px] text-text-3;
+  }
+
+  /* h1 {
+    @apply font-beatricetrial leading-[1.08] text-text
+  }
+
+  h2 {
+    @apply font-instrument font-semibold text-text;
+  } */
+
+  html body[data-scroll-locked] {
+    overflow: visible !important;
+    margin-right: 0 !important;
+  }
+
+  img {
+    height: unset;
+  }
+
+}
+
+.box-layout {
+  #smooth-content {
+    @apply max-w-[1600px] mx-auto !overflow-hidden relative;
+  }
+}
+
+.instrument {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-instrument font-semibold
+  }
+
+  p {
+    @apply font-instrument
+  }
+
+  br {
+    @apply hidden md:block
+  }
+
+  span {
+    @apply font-instrument
+  }
+
+  body {
+    @apply text-text
+  }
+}
+
+.spacegrotesk {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-spacegrotesk font-bold
+  }
+
+  body {
+    @apply text-text
+  }
+}
+
+.beatrice-kanit {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-beatricetrial font-normal
+  }
+
+  .inner-container {
+    &.large2 {
+      @apply 2xl:max-w-[1750px];
+    }
+  }
+
+  body {
+    @apply text-text
+  }
+}
+
+.teko-font {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-teko font-bold
+  }
+
+  body {
+    @apply text-text
+  }
+
+  .inner-container {
+    &.large {
+      @apply 2xl:max-w-[1520px];
+    }
+  }
+
+  .nav-link-before::before {
+    @apply absolute w-[3px] h-full top-0 left-[-20px] bg-theme;
+    content: "";
+  }
+}
+
+.khand {
+  .khand-inner {
+    @apply bg-[#f5f5f5] dark:bg-background;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-khand font-semibold
+  }
+
+  body {
+    @apply text-text
+  }
+
+  .inner-container {
+    &.large2 {
+      @apply 2xl:max-w-[1750px];
+    }
+  }
+
+  br {
+    @apply hidden md:block
+  }
+
+  .swiper-pagination-bullet {
+    @apply w-4 h-4 border opacity-100 border-transparent bg-transparent inline-flex justify-center items-center !m-0 transition-all duration-500;
+
+    &:after {
+      @apply absolute content-[''] w-[6px] h-[6px] rounded-[50%] bg-text-4;
+    }
+
+    &.swiper-pagination-bullet-active {
+      @apply border-background-2;
+
+      &:after {
+        @apply bg-background-2;
+      }
+    }
+  }
+
+  .swiper-slide-thumb-active {
+    @apply border-opacity-100 border-text opacity-100;
+  }
+
+}
+
+.instrument-ai {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-instrument font-medium
+  }
+
+  br {
+    @apply hidden md:block
+  }
+
+  footer {
+    @apply rounded-[20px];
+  }
+}
+
+.plus-jakarta {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-plusjakartasans font-normal;
+
+  }
+
+  br {
+    @apply hidden md:block
+  }
+
+  .testimonial-scrollbar {
+    .swiper-scrollbar-drag {
+      @apply bg-text;
+    }
+  }
+
+  .subtitle_bold {
+    span {
+      @apply font-bold;
+    }
+  }
+}
+
+.plus-jakarta :is(h1, h2, h3, h4, h5, h6) span {
+  @apply font-bold;
+}
+
+/* scrollbar modify */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #d6d6d6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
