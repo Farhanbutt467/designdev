@@ -12,11 +12,28 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 | For an API-only backend, regular web routes are minimized.
-| A catch-all route at the bottom will serve our SPA.
 |
 */
 
-// Explicitly serve the React SPA index.html for all non-API web routes
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\LoginController;
+
+// Admin Login (Named 'login' for Laravel Auth middleware compatibility)
+Route::get('admin/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('admin/login', [LoginController::class, 'login']);
+Route::post('admin/logout', [LoginController::class, 'logout'])->name('logout');
+
+
+// Admin Protected Routes
+Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
+
+    Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
+    Route::get('/users', [AdminController::class, 'users'])->name('users');
+    Route::get('/settings', [AdminController::class, 'settings'])->name('settings');
+});
+
+
+// Explicitly serve the React SPA index.html for all non-api/admin web routes
 Route::get('{any}', function () {
     $indexPath = public_path('index.html');
     if (!file_exists($indexPath)) {
@@ -31,4 +48,5 @@ Route::get('{any}', function () {
         ');
     }
     return file_get_contents($indexPath);
-})->where('any', '^(?!api|sanctum|_debugbar|up).*');
+})->where('any', '^(?!api|admin|sanctum|_debugbar|up).*');
+
