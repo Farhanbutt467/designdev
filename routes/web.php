@@ -24,11 +24,28 @@ Route::post('admin/login', [LoginController::class, 'login']);
 Route::post('admin/logout', [LoginController::class, 'logout'])->name('logout');
 
 
+use App\Http\Controllers\Admin\PageController;
+use App\Http\Controllers\Admin\InvoiceController;
+
 // Admin Protected Routes
 Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
-
     Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
+    Route::resource('pages', PageController::class);
     Route::get('/users', [AdminController::class, 'users'])->name('users');
+
+    Route::resource('invoices', InvoiceController::class);
+    Route::get('/invoices/{id}/pdf', [InvoiceController::class, 'generatePdf'])->name('invoices.pdf');
+
+    // Mailer Routes
+    Route::group(['prefix' => 'mailer', 'as' => 'mailer.'], function () {
+        Route::get('/settings', [\App\Http\Controllers\Admin\MailerController::class, 'settings'])->name('settings');
+        Route::post('/settings', [\App\Http\Controllers\Admin\MailerController::class, 'updateSettings'])->name('settings.update');
+        Route::get('/compose', [\App\Http\Controllers\Admin\MailerController::class, 'compose'])->name('compose');
+        Route::post('/send', [\App\Http\Controllers\Admin\MailerController::class, 'send'])->name('send');
+        Route::get('/logs', [\App\Http\Controllers\Admin\MailerController::class, 'logs'])->name('logs');
+        Route::post('/test-connection', [\App\Http\Controllers\Admin\MailerController::class, 'testConnection'])->name('test-connection');
+    });
+
     Route::get('/settings', [AdminController::class, 'settings'])->name('settings');
 });
 
