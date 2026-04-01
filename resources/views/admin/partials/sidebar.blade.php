@@ -47,9 +47,48 @@
       </a>
     </li>
 
+    <li class="menu-item {{ Request::is('admin/pages*') ? 'active' : '' }}">
+      <a href="{{ route('admin.pages.index') }}" class="menu-link">
+        <i class="menu-icon tf-icons ti ti-file-text"></i>
+        <div data-i18n="Pages">Pages (CMS)</div>
+      </a>
+    </li>
+
+    <li class="menu-item {{ Request::is('admin/invoices*') ? 'active' : '' }}">
+      <a href="{{ route('admin.invoices.index') }}" class="menu-link">
+        <i class="menu-icon tf-icons ti ti-file-invoice"></i>
+        <div data-i18n="Invoices">Invoices</div>
+      </a>
+    </li>
+
+    <li class="menu-item {{ Request::is('admin/mailer*') ? 'active open' : '' }}">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons ti ti-mail"></i>
+        <div data-i18n="Mailer">Mailer</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item {{ Request::is('admin/mailer/compose') ? 'active' : '' }}">
+          <a href="{{ route('admin.mailer.compose') }}" class="menu-link">
+            <div data-i18n="Compose">Compose</div>
+          </a>
+        </li>
+        <li class="menu-item {{ Request::is('admin/mailer/logs') ? 'active' : '' }}">
+          <a href="{{ route('admin.mailer.logs') }}" class="menu-link">
+            <div data-i18n="Logs">Logs</div>
+          </a>
+        </li>
+        <li class="menu-item {{ Request::is('admin/mailer/settings') ? 'active' : '' }}">
+          <a href="{{ route('admin.mailer.settings') }}" class="menu-link">
+            <div data-i18n="Settings">Mail Settings</div>
+          </a>
+        </li>
+      </ul>
+    </li>
+
     <li class="menu-header small">
       <span class="menu-header-text" data-i18n="Management">Management</span>
     </li>
+
     
     <li class="menu-item {{ Request::is('admin/users') ? 'active' : '' }}">
       <a href="{{ route('admin.users') }}" class="menu-link">
