@@ -12,12 +12,21 @@ class ApiAuthController extends Controller
 {
     public function login(Request $request)
     {
-        $request->validate([
+        $credentials = $request->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
+        
+        $credentials['status'] = 'active';
 
-        if (!Auth::attempt($request->only('email', 'password'))) {
+        if (!Auth::attempt($credentials)) {
+            $user = User::where('email', $request->email)->first();
+            if ($user && $user->status !== 'active' && Hash::check($request->password, $user->password)) {
+                throw ValidationException::withMessages([
+                    'email' => ['Your account has been deactivated. Please contact the administrator.'],
+                ]);
+            }
+
             throw ValidationException::withMessages([
                 'email' => ['The provided credentials are incorrect.'],
             ]);

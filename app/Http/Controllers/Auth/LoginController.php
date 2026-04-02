@@ -20,10 +20,19 @@ class LoginController extends Controller
             'password' => ['required'],
         ]);
 
+        $credentials['status'] = 'active';
+
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
             return redirect()->intended('/admin');
+        }
+
+        $user = \App\Models\User::where('email', $request->email)->first();
+        if ($user && $user->status !== 'active' && \Illuminate\Support\Facades\Hash::check($request->password, $user->password)) {
+            return back()->withErrors([
+                'email' => 'Your account has been deactivated. Please contact the administrator.',
+            ])->onlyInput('email');
         }
 
         return back()->withErrors([
