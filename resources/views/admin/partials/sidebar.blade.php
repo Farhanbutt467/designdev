@@ -90,8 +90,8 @@
     </li>
 
     
-    <li class="menu-item {{ Request::is('admin/users') ? 'active' : '' }}">
-      <a href="{{ route('admin.users') }}" class="menu-link">
+    <li class="menu-item {{ Request::is('admin/users*') ? 'active' : '' }}">
+      <a href="{{ route('admin.users.index') }}" class="menu-link">
         <i class="menu-icon tf-icons ti ti-users"></i>
         <div data-i18n="Users">Users</div>
       </a>

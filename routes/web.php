@@ -26,12 +26,13 @@ Route::post('admin/logout', [LoginController::class, 'logout'])->name('logout');
 
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\InvoiceController;
+use App\Http\Controllers\Admin\UserController;
 
 // Admin Protected Routes
 Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
     Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::resource('pages', PageController::class);
-    Route::get('/users', [AdminController::class, 'users'])->name('users');
+    Route::resource('users', UserController::class);
 
     Route::resource('invoices', InvoiceController::class);
     Route::get('/invoices/{id}/pdf', [InvoiceController::class, 'generatePdf'])->name('invoices.pdf');
