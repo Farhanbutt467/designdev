@@ -47,10 +47,24 @@
       </a>
     </li>
 
-    <li class="menu-item {{ Request::is('admin/pages*') ? 'active' : '' }}">
-      <a href="{{ route('admin.pages.index') }}" class="menu-link">
+    <li class="menu-item {{ Request::is('admin/page-settings*') ? 'active' : '' }}">
+      <a href="{{ route('admin.page-settings.index') }}" class="menu-link">
+        <i class="menu-icon tf-icons ti ti-settings"></i>
+        <div data-i18n="Page Settings">Page Settings</div>
+      </a>
+    </li>
+
+    <li class="menu-item {{ Request::is('admin/home-menu*') ? 'active' : '' }}">
+      <a href="{{ route('admin.home-menu.index') }}" class="menu-link">
+        <i class="menu-icon tf-icons ti ti-menu-2"></i>
+        <div data-i18n="Home Menu">Home Menu</div>
+      </a>
+    </li>
+
+    <li class="menu-item {{ Request::is('admin/content-pages*') ? 'active' : '' }}">
+      <a href="{{ route('admin.content-pages.index') }}" class="menu-link">
         <i class="menu-icon tf-icons ti ti-file-text"></i>
-        <div data-i18n="Pages">Pages (CMS)</div>
+        <div data-i18n="Content Pages">Content Pages</div>
       </a>
     </li>
 

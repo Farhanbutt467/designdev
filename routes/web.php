@@ -24,14 +24,31 @@ Route::post('admin/login', [LoginController::class, 'login']);
 Route::post('admin/logout', [LoginController::class, 'logout'])->name('logout');
 
 
-use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\InvoiceController;
 use App\Http\Controllers\Admin\UserController;
 
 // Admin Protected Routes
 Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
     Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
-    Route::resource('pages', PageController::class);
+    
+    // UI Routes for Page Settings
+    Route::get('page-settings', [\App\Http\Controllers\Admin\PageSettingController::class, 'webIndex'])->name('page-settings.index');
+    Route::post('page-settings', [\App\Http\Controllers\Admin\PageSettingController::class, 'webStore'])->name('page-settings.store');
+    Route::put('page-settings/{id}', [\App\Http\Controllers\Admin\PageSettingController::class, 'webUpdate'])->name('page-settings.update');
+    Route::delete('page-settings/{id}', [\App\Http\Controllers\Admin\PageSettingController::class, 'webDestroy'])->name('page-settings.destroy');
+
+    // UI Routes for Home Page Menu
+    Route::get('home-menu', [\App\Http\Controllers\Admin\HomePageMenuController::class, 'webIndex'])->name('home-menu.index');
+    Route::post('home-menu', [\App\Http\Controllers\Admin\HomePageMenuController::class, 'webStore'])->name('home-menu.store');
+    Route::put('home-menu/{id}', [\App\Http\Controllers\Admin\HomePageMenuController::class, 'webUpdate'])->name('home-menu.update');
+    Route::delete('home-menu/{id}', [\App\Http\Controllers\Admin\HomePageMenuController::class, 'webDestroy'])->name('home-menu.destroy');
+
+    // UI Routes for Content Pages
+    Route::get('content-pages', [\App\Http\Controllers\Admin\ContentPageController::class, 'webIndex'])->name('content-pages.index');
+    Route::post('content-pages', [\App\Http\Controllers\Admin\ContentPageController::class, 'webStore'])->name('content-pages.store');
+    Route::put('content-pages/{id}', [\App\Http\Controllers\Admin\ContentPageController::class, 'webUpdate'])->name('content-pages.update');
+    Route::delete('content-pages/{id}', [\App\Http\Controllers\Admin\ContentPageController::class, 'webDestroy'])->name('content-pages.destroy');
+
     Route::resource('users', UserController::class);
 
     Route::resource('invoices', InvoiceController::class);
